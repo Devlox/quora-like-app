@@ -53,7 +53,7 @@ class CategoryController extends Controller
         $category->slug = str_slug($request->name);
         $category->save();
 
-        return response()->json('Created Succefully', 201);
+        return response()->json(new CategoryResource($category), 201);
     }
 
     /**
@@ -94,7 +94,7 @@ class CategoryController extends Controller
             ]
         );
 
-        return response()->json('Updated Succefully', 201);
+        return response()->json(new CategoryResource($category), 201);
     }
 
     /**
